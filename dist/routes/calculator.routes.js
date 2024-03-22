@@ -5,11 +5,22 @@ const express_1 = require("express");
 exports.router = (0, express_1.Router)();
 exports.router.get('/', (req, res) => {
     console.log("Hello Boss!");
-    res.send("Hello Boss!");
+    res.send({
+        message: 'Get all Calculations',
+        timeStamp: req.timestamp,
+        data: [
+            { id: 1, result: 1 },
+            { id: 2, result: 2 }
+        ]
+    });
 });
 exports.router.get('/:id', (req, res) => {
     console.log(`Query parameter: ${JSON.stringify(req.query)}`);
     console.log(`Headers: ${JSON.stringify(req.headers)}`);
     console.log(`Method: ${req.method}`);
-    res.send(`Hello ${req.params.id}`);
+    res.send({
+        message: 'Get Calculation by ID',
+        id: req.params.id,
+        result: 1
+    });
 });

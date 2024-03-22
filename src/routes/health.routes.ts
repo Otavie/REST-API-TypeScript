@@ -1,7 +1,10 @@
-import { Router } from "express";
+import { Router, Request, Response } from "express";
 
 export const router = Router()
 
-router.get('/', (req, res) => {
-    res.send('My health is fine!')
+router.get('/', (req: Request, res: Response) => {
+    res.send({
+        message: 'My health is okay!',
+        timeStamp: req.timestamp
+    })
 })

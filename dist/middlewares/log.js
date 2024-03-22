@@ -2,6 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.logger = void 0;
 exports.logger = ((req, res, next) => {
-    console.log(`${req.method} ${req.ip}${req.originalUrl}`);
+    console.log(`${req.timestamp} ${req.method} ${req.ip}${req.originalUrl}`);
     next();
 });
