@@ -4,6 +4,12 @@ import { healthRouter, calRouter } from './routes'
 const app = express()
 const PORT = 4520
 
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.ip}${req.originalUrl}`)
+
+    next()
+})
+
 app.use('/health', healthRouter)
 app.use('/calculator', calRouter)
 
