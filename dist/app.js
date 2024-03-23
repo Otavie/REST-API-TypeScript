@@ -12,6 +12,7 @@ app.use(middlewares_1.timeStamp);
 app.use(middlewares_1.logger);
 app.use('/health', routes_1.healthRouter);
 app.use('/calculator', routes_1.calRouter);
+app.use(middlewares_1.errorHandler);
 app.listen((PORT), () => {
     console.log(`App is running on PORT http://localhost:${PORT}`);
 });
