@@ -51,3 +51,24 @@ exports.router.post('/', middlewares_1.validateCalculatorReq, (req, res) => {
         data: result
     });
 });
+exports.router.put('/:id', (req, res) => {
+    const id = req.params.ID;
+    // const { operator, operand1, operand2 } = req.body
+    let result;
+    result = `Updated calculation with ID ${id}`;
+    res.send({
+        message: 'Update calculation by ID',
+        timeStamp: req.timestamp,
+        data: result
+    });
+});
+exports.router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    let result;
+    result = `Deleted calculation with ID ${id}`;
+    res.send({
+        message: 'Delete calculation by ID',
+        timeStamp: req.timestamp,
+        data: result
+    });
+});

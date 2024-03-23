@@ -56,3 +56,31 @@ router.post('/', validateCalculatorReq, (req: Request<{}, any, CalculatorReqBody
         data: result
     })
 })
+
+router.put('/:id', (req: Request, res: Response) => {
+    const id = req.params.ID
+
+    // const { operator, operand1, operand2 } = req.body
+    let result: number | string
+
+    result = `Updated calculation with ID ${id}`
+
+    res.send({
+        message: 'Update calculation by ID',
+        timeStamp: req.timestamp,
+        data: result
+    })
+})
+
+router.delete('/:id', (req: Request, res: Response) => {
+    const id = req.params.id
+
+    let result: string | number
+    result = `Deleted calculation with ID ${id}`
+
+    res.send({
+        message: 'Delete calculation by ID',
+        timeStamp: req.timestamp,
+        data: result
+    })
+})
