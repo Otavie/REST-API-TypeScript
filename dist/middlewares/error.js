@@ -4,5 +4,6 @@ exports.errorHandler = void 0;
 const errorHandler = (error, req, res, next) => {
     console.error(error.stack);
     res.status(500).send(error.message);
+    next();
 };
 exports.errorHandler = errorHandler;

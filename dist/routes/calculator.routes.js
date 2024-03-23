@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = void 0;
 const express_1 = require("express");
+const middlewares_1 = require("../middlewares");
 exports.router = (0, express_1.Router)();
 exports.router.get('/', (req, res) => {
     console.log("Hello Boss!");
@@ -24,7 +25,7 @@ exports.router.get('/:id', (req, res) => {
         result: 1
     });
 });
-exports.router.post('/', (req, res) => {
+exports.router.post('/', middlewares_1.validateCalculatorReq, (req, res) => {
     const { operator, operand1, operand2 } = req.body;
     let result;
     switch (operator) {

@@ -1,5 +1,6 @@
 import { Router, Request,Response } from "express";
 import { CalculatorReqBody } from "../types";
+import { validateCalculatorReq } from "../middlewares";
 
 export const router = Router()
 
@@ -27,7 +28,7 @@ router.get('/:id', (req, res) => {
     })
 })
 
-router.post('/', (req: Request<{}, any, CalculatorReqBody>, res: Response) => {
+router.post('/', validateCalculatorReq, (req: Request<{}, any, CalculatorReqBody>, res: Response) => {
     const { operator, operand1, operand2 } = req.body
     let result: number | string
     
