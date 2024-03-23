@@ -18,9 +18,6 @@ router.get('/', (req: Request, res) => {
 })
 
 router.get('/:id', (req, res) => {
-    console.log(`Query parameter: ${JSON.stringify(req.query)}`)
-    console.log(`Headers: ${JSON.stringify(req.headers)}`)
-    console.log(`Method: ${req.method}`)
     res.send({
         message: 'Get Calculation by ID',
         id: req.params.id,
@@ -58,29 +55,31 @@ router.post('/', validateCalculatorReq, (req: Request<{}, any, CalculatorReqBody
 })
 
 router.put('/:id', (req: Request, res: Response) => {
-    const id = req.params.ID
+    const urlID = req.params.id
 
     // const { operator, operand1, operand2 } = req.body
     let result: number | string
 
-    result = `Updated calculation with ID ${id}`
+    result = `Updated calculation with ID ${urlID}`
 
     res.send({
         message: 'Update calculation by ID',
         timeStamp: req.timestamp,
-        data: result
+        data: result,
+        id: urlID
     })
 })
 
 router.delete('/:id', (req: Request, res: Response) => {
-    const id = req.params.id
+    const urlID = req.params.id
 
     let result: string | number
-    result = `Deleted calculation with ID ${id}`
+    result = `Deleted calculation with ID ${urlID}`
 
     res.send({
         message: 'Delete calculation by ID',
         timeStamp: req.timestamp,
-        data: result
+        data: result,
+        id: urlID
     })
 })
