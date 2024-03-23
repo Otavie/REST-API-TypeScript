@@ -1,5 +1,5 @@
 import express from 'express'
-import { healthRouter, calRouter, cookieRouter } from './routes'
+import { healthRouter, calRouter, cookieRouter, securityRouter } from './routes'
 import { errorHandler, logger, timeStamp } from './middlewares'
 import cookieParser from 'cookie-parser'
 
@@ -10,6 +10,7 @@ app.use(cookieParser())
 app.use(express.json())
 app.use(timeStamp)
 app.use(logger)
+app.use('/', securityRouter)
 app.use('/cookies', cookieRouter)
 app.use('/health', healthRouter)
 app.use('/calculator', calRouter)

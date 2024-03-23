@@ -13,6 +13,7 @@ app.use((0, cookie_parser_1.default)());
 app.use(express_1.default.json());
 app.use(middlewares_1.timeStamp);
 app.use(middlewares_1.logger);
+app.use('/', routes_1.securityRouter);
 app.use('/cookies', routes_1.cookieRouter);
 app.use('/health', routes_1.healthRouter);
 app.use('/calculator', routes_1.calRouter);
