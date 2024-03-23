@@ -1,4 +1,5 @@
-import { Router, Request } from "express";
+import { Router, Request,Response } from "express";
+import { CalculatorReqBody } from "../types";
 
 export const router = Router()
 
@@ -26,10 +27,31 @@ router.get('/:id', (req, res) => {
     })
 })
 
-router.post('/', (req: Request, res) => {
+router.post('/', (req: Request<{}, any, CalculatorReqBody>, res: Response) => {
+    const { operator, operand1, operand2 } = req.body
+    let result: number | string
+    
+    switch(operator) {
+        case "+":
+            result = operand1 + operand2
+            break
+        case "-":
+            result = operand1 - operand2
+            break
+        case "/":
+            result = operand1 / operand2
+            break
+        case "*":
+            result = operand1 * operand2
+            break
+        default:
+            result = 'Invalid operator!'
+            break
+    }
+
     res.send({
         message: 'Create a new calculation',
         timeStamp: req.timestamp,
-        data: req.body
+        data: result
     })
 })

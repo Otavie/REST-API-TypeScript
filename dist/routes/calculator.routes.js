@@ -25,9 +25,28 @@ exports.router.get('/:id', (req, res) => {
     });
 });
 exports.router.post('/', (req, res) => {
+    const { operator, operand1, operand2 } = req.body;
+    let result;
+    switch (operator) {
+        case "+":
+            result = operand1 + operand2;
+            break;
+        case "-":
+            result = operand1 - operand2;
+            break;
+        case "/":
+            result = operand1 / operand2;
+            break;
+        case "*":
+            result = operand1 * operand2;
+            break;
+        default:
+            result = 'Invalid operator!';
+            break;
+    }
     res.send({
         message: 'Create a new calculation',
         timeStamp: req.timestamp,
-        data: req.body
+        data: result
     });
 });
