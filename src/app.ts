@@ -5,6 +5,7 @@ import { errorHandler, logger, timeStamp } from './middlewares'
 const app = express()
 const PORT = 4520
 
+app.use(express.json())
 app.use(timeStamp)
 app.use(logger)
 app.use('/health', healthRouter)

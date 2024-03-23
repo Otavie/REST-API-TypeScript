@@ -25,3 +25,11 @@ router.get('/:id', (req, res) => {
         result: 1
     })
 })
+
+router.post('/', (req: Request, res) => {
+    res.send({
+        message: 'Create a new calculation',
+        timeStamp: req.timestamp,
+        data: req.body
+    })
+})

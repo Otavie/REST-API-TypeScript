@@ -24,3 +24,10 @@ exports.router.get('/:id', (req, res) => {
         result: 1
     });
 });
+exports.router.post('/', (req, res) => {
+    res.send({
+        message: 'Create a new calculation',
+        timeStamp: req.timestamp,
+        data: req.body
+    });
+});
