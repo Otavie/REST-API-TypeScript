@@ -24,6 +24,6 @@ app.use(errorHandler)
 
 // app.listen = jest.fn()
 
-// app.listen((PORT), () => {
-//     console.log(`App is running on PORT http://localhost:${PORT}`)
-// })
+app.listen((PORT), () => {
+    console.log(`App is running on PORT http://localhost:${PORT}`)
+})

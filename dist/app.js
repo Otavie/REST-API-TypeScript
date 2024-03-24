@@ -24,6 +24,6 @@ exports.app.use('/health', routes_1.healthRouter);
 exports.app.use('/calculator', routes_1.calRouter);
 exports.app.use(middlewares_1.errorHandler);
 // app.listen = jest.fn()
-// app.listen((PORT), () => {
-//     console.log(`App is running on PORT http://localhost:${PORT}`)
-// })
+exports.app.listen((PORT), () => {
+    console.log(`App is running on PORT http://localhost:${PORT}`);
+});
